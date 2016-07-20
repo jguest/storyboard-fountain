@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
   
+  const exec = require('child_process').exec;
+  
   grunt.initConfig({
     nodewebkit: {
       options: {
@@ -24,9 +26,12 @@ module.exports = function(grunt) {
     if (!fs.existsSync('node-webkit-src/tools')) {
       fs.mkdirSync('node-webkit-src/tools');
     }
-    var exec = require('child_process').exec;
     exec('gcc -Wall -g -O3 -ObjC -framework Foundation -framework AppKit -o node-webkit-src/tools/sfpasteboard sfpasteboard/sfpasteboard.m', done);
   });
 
   grunt.registerTask('build', ['sfpasteboard', 'nodewebkit']);
+  
+  grunt.registerTask('run', ['build'], function() {
+    exec("webkitbuilds/cache/mac/0.9.2/node-webkit.app/Contents/MacOS/node-webkit node-webkit-src/");
+  });
 };
