@@ -30,7 +30,7 @@ Storyboard Fountain makes it easy to visualize a screenplay as fast you can draw
 
 ## Developing 
 
-View your changes with `grunt build` or do it the hard way with:
+View your changes with `grunt run` or do it the hard way with:
 
 `webkitbuilds/cache/mac/0.9.2/node-webkit.app/Contents/MacOS/node-webkit node-webkit-src/`.
 
